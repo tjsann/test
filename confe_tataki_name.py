@@ -17,7 +17,7 @@ chrome_options.add_argument("--headless")  # ヘッドレスモード（ブラ�
 # 名義情報
 name = 'ハルカ カナタ'
 tell = "09012345678"
-address = 'akatoki1016@icloud.com'
+address = 'test1234@icloud.com'
 
 # チケット情報
 # ここに選択したい公演が何公演目かを入力
@@ -63,8 +63,11 @@ time.sleep(0.5)
 # 席種選ぶ画面
 element = driver.find_elements(By.CLASS_NAME, "conditon")
 # 指定公演のリンクをクリック
-# ※S席、A席もそれぞれ1と起算
-# 2n-2で1公演目(S席)の場合はn=1で0番目、3公演目(S席)の場合はn=3で上から4番目になる
+# ※S席、A席もそれぞれ1と数える
+# 例；1/1 S席(1公演目) 0
+#　　 1/1 A席(1公演目) 1
+# 2n-2でS席のみにしている。
+# #1公演目(S席)の場合はn=1で0番目、3公演目(S席)の場合はn=3で上から4番目になる
 element[2*stage_num-2].click()
 time.sleep(0.5)
 
