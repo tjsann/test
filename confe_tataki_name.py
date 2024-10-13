@@ -23,7 +23,7 @@ address = 'test1234@icloud.com'
 # ここに選択したい公演が何公演目かを入力
 stage_num = 1
 # ここに選択したい演者の名前を入力
-ticketName = '相川'
+ticketName = '八巻'
 # ここに選択したいチケット枚数を入力
 ticket_num =2
 
@@ -59,7 +59,7 @@ while True:
 # 最初の画面クリック
 element = driver.find_element(By.CSS_SELECTOR, element1)
 element.click()
-time.sleep(0.5)
+time.sleep(0.1)
 # 席種選ぶ画面
 element = driver.find_elements(By.CLASS_NAME, "conditon")
 # 指定公演のリンクをクリック
@@ -69,7 +69,7 @@ element = driver.find_elements(By.CLASS_NAME, "conditon")
 # 2n-2でS席のみにしている。
 # #1公演目(S席)の場合はn=1で0番目、3公演目(S席)の場合はn=3で上から4番目になる
 element[2*stage_num-2].click()
-time.sleep(0.5)
+time.sleep(0.1)
 
 # 枚数選択画面(演者選ぶ画面)
 #element = driver.find_elements(By.CLASS_NAME, "number")
@@ -85,7 +85,7 @@ for index, element in enumerate(elements):
         break
     else :
         print("")
-time.sleep(0.5)
+time.sleep(0.1)
 # 指定のセレクトボックスを選ぶ
 select_elements = driver.find_elements(By.CLASS_NAME, 'number')[target_index]
 select = Select(select_elements)
@@ -93,7 +93,7 @@ select = Select(select_elements)
 select.select_by_value(str(ticket_num))
 element = driver.find_element(By.CSS_SELECTOR, element3)
 element.click()
-time.sleep(0.5)
+time.sleep(0.1)
 # 隣じゃないエラー
 try:
     element = driver.find_elements(By.CLASS_NAME,"remodal-cancel")
@@ -123,9 +123,15 @@ driver.find_element(By.NAME, "mailpc_cert").send_keys(address)
 # 規約
 driver.find_element(By.ID, "kiyaku_").click()
 driver.find_element(By.CLASS_NAME, "footer_next").click()
-time.sleep(0.5)
+time.sleep(0.1)
 driver.find_element(By.CLASS_NAME, "footer_next").click()
-time.sleep(0.5)
+time.sleep(0.1)
 #最終決定
 driver.find_element(By.CLASS_NAME, "remodal-confirm").click()
+
+pay_elements = driver.find_elements(By.CLASS_NAME, "form_table")
+
+for index, pay_element in enumerate(pay_elements):
+    # 支払い情報
+    print(pay_element.text)
 driver.quit()
