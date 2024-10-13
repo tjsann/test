@@ -12,7 +12,7 @@ import codecs
 
 # Chromeオプションの設定
 chrome_options = Options()
-chrome_options.add_argument("--headless")  # ヘッドレスモード（ブラウザのGUIを表示しない）
+#chrome_options.add_argument("--headless")  # ヘッドレスモード（ブラウザのGUIを表示しない）
 
 # 名義情報
 name = 'ハルカ カナタ'
@@ -23,7 +23,7 @@ address = 'test1234@icloud.com'
 # ここに選択したい公演が何公演目かを入力
 stage_num = 1
 # ここに選択したい演者の名前を入力
-ticketName = '八巻'
+ticketName = '相川'
 # ここに選択したいチケット枚数を入力
 ticket_num =2
 
@@ -123,9 +123,9 @@ driver.find_element(By.NAME, "mailpc_cert").send_keys(address)
 # 規約
 driver.find_element(By.ID, "kiyaku_").click()
 driver.find_element(By.CLASS_NAME, "footer_next").click()
-time.sleep(100)
+time.sleep(0.5)
 driver.find_element(By.CLASS_NAME, "footer_next").click()
 time.sleep(0.5)
 #最終決定
-#driver.find_element(By.CLASS_NAME, "remodal-confirm").click()
+driver.find_element(By.CLASS_NAME, "remodal-confirm").click()
 driver.quit()
