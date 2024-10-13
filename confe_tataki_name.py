@@ -128,10 +128,10 @@ driver.find_element(By.CLASS_NAME, "footer_next").click()
 time.sleep(0.1)
 #最終決定
 driver.find_element(By.CLASS_NAME, "remodal-confirm").click()
+#支払い番号
+pay_element = driver.find_element(By.CSS_SELECTOR, "#gif_info > tbody > tr:nth-child(2) > td")
+print(pay_element.text)
+pay_element = driver.find_element(By.CSS_SELECTOR, "#gif_info > tbody > tr:nth-child(3) > td")
+print(pay_element.text)
 
-pay_elements = driver.find_elements(By.CLASS_NAME, "form_table")
-
-for index, pay_element in enumerate(pay_elements):
-    # 支払い情報
-    print(pay_element.text)
 driver.quit()
