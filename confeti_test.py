@@ -12,7 +12,7 @@ import codecs
 
 # Chromeオプションの設定
 chrome_options = Options()
-chrome_options.add_argument("--headless")  # ヘッドレスモード（ブラウザのGUIを表示しない）
+#chrome_options.add_argument("--headless")  # ヘッドレスモード（ブラウザのGUIを表示しない）
 
 # 名義情報
 name = 'タチバナ ハルカ'
@@ -61,8 +61,8 @@ while True:
 # 席種選ぶ画面
     element = driver.find_elements(By.CLASS_NAME, "conditon")
     if element_exists(element,driver):
-            print("Element found!")
-            break
+        print("Element found!")
+        break
     else:
         print("Element not found, reloading...")
     
